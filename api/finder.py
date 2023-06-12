@@ -13,6 +13,7 @@ class handler(BaseHTTPRequestHandler):
     req_type = url_components.query.split()[0]
     if req_type == "country":
         req_type = "name"
+    else: req_type = "capital"
     query_params = url_components.query.split()[1]
     req = requests.get(f"https://restcountries.com/v3.1/{req_type}/" + query_params)
     message = str(req.capital if req_type == "capital" else req.name.comon)
