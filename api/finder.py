@@ -10,12 +10,12 @@ class handler(BaseHTTPRequestHandler):
     self.send_response(200)
     self.send_header('Content-type', 'text/plain')
     self.end_headers()
-    url_components = parse.urlsplit(self.path)
-    req_type = url_components.query.split()[0]
-    if req_type == "country":
-        req_type = "name"
-    query_params = url_components.query.split()[1]
-    req = requests.get(f"https://restcountries.com/v3.1/{req_type}/" + query_params)
+    # url_components = parse.urlsplit(self.path)
+    # req_type = url_components.query.split()[0]
+    # if req_type == "country":
+    #     req_type = "name"
+    # query_params = url_components.query.split()[1]
+    # req = requests.get(f"https://restcountries.com/v3.1/{req_type}/" + query_params)
     self.wfile.write(str("demo").encode())
     return
 
