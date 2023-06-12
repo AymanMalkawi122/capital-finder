@@ -1,7 +1,7 @@
 from http.server import BaseHTTPRequestHandler
-from datetime import datetime
-import requests
-from urllib import parse
+
+# import requests
+# from urllib import parse
 
 
 class handler(BaseHTTPRequestHandler):
@@ -16,7 +16,7 @@ class handler(BaseHTTPRequestHandler):
     #     req_type = "name"
     # query_params = url_components.query.split()[1]
     # req = requests.get(f"https://restcountries.com/v3.1/{req_type}/" + query_params)
-    self.wfile.write("demo".encode)
+    self.wfile.write("demo".encode())
     return
 
 # str(req.capital if req_type == "capital" else req.name.comon
