@@ -17,6 +17,6 @@ class handler(BaseHTTPRequestHandler):
     query_params = url_components.query.split("=")[1]
     req = requests.get(f"https://restcountries.com/v3.1/{req_type}/" + query_params)
     message = str(req.capital if req_type == "capital" else req.name.comon) + req_type + query_params
-    self.wfile.write(message.encode())
+    self.wfile.write(message.encode('utf-8'))
     return
 
