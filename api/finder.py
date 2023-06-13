@@ -16,7 +16,11 @@ class handler(BaseHTTPRequestHandler):
     else: req_type = "capital"
     query_params = url_components.query.split("=")[1]
     req = requests.get(f"https://restcountries.com/v3.1/{req_type}/" + query_params)
-    message = str(req.capital if req_type == "capital" else req.name.comon)
+    req = req.json()
+    
+    capital = req[0]["capital"][0]
+    country = req[0]["name"]["common"]
+    message = f"{capital} is the capital of {country}" if req_type == "capital" else f"The capital of {country} is {capital}."
     self.wfile.write(message.encode())
     return
 
